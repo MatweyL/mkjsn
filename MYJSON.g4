@@ -2,7 +2,7 @@ grammar MYJSON;
 
 prog : '(' objectKeyValue (objectKeyValue)* ')';
 
-objectKeyValue : '(' STRING value ')' | '(' objectKeyValue+ ')';
+objectKeyValue :  STRING value | '(' objectKeyValue+ ')';
 array : '{' ( value )+ '}';
 value : STRING | NUMBER | objectKeyValue | array | NULL | BOOL;
 
