@@ -58,6 +58,8 @@ public class TreeWalker extends MYJSONBaseListener {
     private void printValue(MYJSONParser.ValueContext ctx) {
         if (ctx.STRING() != null) {
             json.append("\"" + ctx.STRING() +"\"");
+        } else if (ctx.COMPOUNDEDSTRING() != null) {
+            json.append(ctx.COMPOUNDEDSTRING());
         } else if (ctx.NUMBER() != null) {
             json.append(ctx.NUMBER());
         } else if (ctx.BOOL() != null) {
