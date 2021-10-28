@@ -15,13 +15,13 @@ public class TreeWalker extends MYJSONBaseListener {
     @Override
     public void enterObject(MYJSONParser.ObjectContext ctx) {
         super.enterObject(ctx);
-        json.append("{");
+        json.append("{\n");
     }
 
     @Override
     public void exitObject(MYJSONParser.ObjectContext ctx) {
         super.exitObject(ctx);
-        json.delete(json.length() - 1, json.length());
+        json.delete(json.length() - 2, json.length());
         json.append("}");
     }
 
@@ -45,7 +45,7 @@ public class TreeWalker extends MYJSONBaseListener {
     @Override
     public void exitArray(MYJSONParser.ArrayContext ctx) {
         super.exitArray(ctx);
-        json.delete(json.length() - 1, json.length());
+        json.delete(json.length() - 2, json.length());
         json.append("]");
     }
 
@@ -72,7 +72,7 @@ public class TreeWalker extends MYJSONBaseListener {
     @Override
     public void exitValue(MYJSONParser.ValueContext ctx) {
         super.exitValue(ctx);
-        json.append(",");
+        json.append(",\n");
     }
 
     @Override
