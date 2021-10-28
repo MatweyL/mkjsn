@@ -13,7 +13,12 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         System.out.println(1);
-        MYJSONLexer myjsonLexer = new MYJSONLexer(CharStreams.fromString("((Tom 20) (Bob 21) (Lisa 22))"));
+        MYJSONLexer myjsonLexer = new MYJSONLexer(CharStreams.fromString("(\n" +
+                "    chill null \n" +
+                "    Bob true\n" +
+                "    Lisa (age 31 cats {Tom Gosha Barsik})\n" +
+                "\n" +
+                ")"));
         CommonTokenStream tokens = new CommonTokenStream(myjsonLexer);
         MYJSONParser myjsonParser = new MYJSONParser(tokens);
         myjsonParser.setBuildParseTree(true);
